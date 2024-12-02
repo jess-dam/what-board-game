@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/ui/theme-provider";
 import "./globals.css";
 
 export default function RootLayout({
@@ -7,9 +8,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex items-center place-self-center bg-black text-white p-2 w-screen h-screen md:max-w-[768px]">
-        {children}
-      </body>
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <body className="flex items-center place-self-center p-5 w-screen h-screen md:max-w-[768px]">
+          {children}
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
